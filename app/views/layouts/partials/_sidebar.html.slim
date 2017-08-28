@@ -1,0 +1,24 @@
+#sidebar.ui.left.vertical.inverted.labeled.visible.sidebar.menu.skipa-sidebar
+  .item
+    = image_tag 'logo.png'
+  .item
+    = image_tag 'animal-avatar.svg', size: '50x50', class: 'ui image'
+    span 
+      p
+        a href="#{main_app.root_path}"
+          | Editar meu perfil
+
+  a.item href="#{main_app.root_path}"
+    i.home.icon
+    | Dashboard
+  a.item href="#{main_app.stores_path}"
+    i.block.layout.icon
+    | Lojas
+
+  a.item href="#{main_app.root_path}"
+    i.settings.icon
+    | Configurações
+
+  a.item href="#{main_app.root_path}"
+    i.settings.icon
+    | Finalizar acesso

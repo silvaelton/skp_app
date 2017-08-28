@@ -21,11 +21,13 @@ module SkpApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.assets.paths << Rails.root.join("vendor/ui-kits")
+    config.assets.paths << Rails.root.join("fonts")
+    
+    config.time_zone = 'Brasilia'
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :'pt-BR'
 
-    # Don't generate system test files.
     config.generators.system_tests = nil
   end
 end

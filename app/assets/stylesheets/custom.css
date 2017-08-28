@@ -1,0 +1,13 @@
+.skipa-sidebar {
+  background-color: #00a3da !important;
+  font-family: 'Mukta', sans-serif !important;
+}
+
+.skipa-sidebar a {
+  color: white !important;
+}
+
+#container {
+  padding: 20px !important;
+  margin-right: 17% !important;
+}

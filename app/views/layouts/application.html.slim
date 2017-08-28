@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title SkpApp
+    = csrf_meta_tags
+    link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet" /
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    
+    .pushable
+      = render 'layouts/partials/sidebar'
+      .pusher#container
+        = yield
+      
