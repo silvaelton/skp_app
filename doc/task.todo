@@ -1,0 +1,25 @@
+Crud's
+
+- :user crud
+- Login/Logout :user
+- :store crud
+- :store_user crud
+- Login/Logout :store_user
+- :store_staff crud
+- :store_context crud
+- :store_context_objectives crud
+- :store_context_hit_objectives crud
+- :store_goals crud
+- :manager_evaluation_category crud
+- :manager_criterions crud
+- :manager_evaluations crud
+- :manager_evaluatoin_criterions crud
+- :indirect_team_awards crud
+
+Interface
+
+- Menus
+- Dashboard (Metas)
+- Dashboard (Gerente)
+- Dashboard (Atendentes)
+- Dashboard (Geral - À pagar)
