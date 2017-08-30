@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'slim'
 gem 'jquery-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'

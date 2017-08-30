@@ -1,0 +1,65 @@
+.ui.grid
+  .row
+    .column
+      h1 Detalhamento de Loja
+      = link_to "Voltar para listagem", stores_path, class: 'ui button tiny'
+  .row
+    .column
+      .ui.segment
+        h5 Informações gerais
+        = link_to "Editar informações", edit_store_path(@store)
+        table.ui.table.striped.celled
+          thead
+            tr
+              th Vendas (Total) 
+  .row
+    .column
+      .ui.styled.fluid.accordion
+        .active.title
+          i.dropdown.icon
+          | Visão geral
+        .active.content
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Ok
+        .title
+          i.dropdown.icon
+          | Gerência
+        .content
+          = link_to "+ Adicionar gerente", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Cod.
+                th Início
+                th Fim
+                th Situação
+                th
+        .title
+          i.dropdown.icon
+          | Vendedores
+        .content
+          = link_to "+ Adicionar vendedor", "#"
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Cod.
+                th Início
+                th Fim
+                th Situação
+                th
+
+        .title
+          i.dropdown.icon
+          | Períodos (0)
+        .content
+          = link_to "+ Adicionar período", new_store_context_path(@store), remote: true
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Cod.
+                th Início
+                th Fim
+                th Situação
+                th

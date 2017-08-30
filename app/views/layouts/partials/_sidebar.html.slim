@@ -2,11 +2,7 @@
   .item
     = image_tag 'logo.png'
   .item
-    = image_tag 'animal-avatar.svg', size: '50x50', class: 'ui image'
-    span 
-      p
-        a href="#{main_app.root_path}"
-          | Editar meu perfil
+    = image_tag 'animal-avatar.svg', size: '50x50', class: 'ui '
 
   a.item href="#{main_app.root_path}"
     i.home.icon
@@ -17,8 +13,5 @@
 
   a.item href="#{main_app.root_path}"
     i.settings.icon
-    | Configurações
+    | Administração
 
-  a.item href="#{main_app.root_path}"
-    i.settings.icon
-    | Finalizar acesso

@@ -1,0 +1,30 @@
+= simple_form_for @store, url: @store.new_record? ? stores_path : store_path(@store), method: @store.new_record? ? :post : :put do |f|
+  .fields
+    .field.wide.twelve
+      = f.input :name 
+    .field.wide.two
+      = f.input :cnpj, input_html: { class: 'cnpj' }
+    .field.wide.two
+      = f.input :telephone
+  .fields
+    .field.wide.five
+      = f.input :city
+    .field.wide.two
+      = f.input :uf, input_html: { maxLength: 2}
+    .field.wide.three
+      = f.input :cep, input_html: { class: 'cep'}
+    .field.wide.five
+      = f.input :address
+    .field.wide.five
+      = f.input :address_complement
+    .field.wide.two
+      = f.input :address_number
+    .field.wide.three
+      = f.input :neighborhood
+  .fields
+    .field.wide.two
+      = f.input :status, as: :select, include_blank: false
+  .ui.divider.hidden
+  .field
+    = f.button :submit, class: 'ui button blue tiny'
+    = link_to t(:cancel), stores_path, class: 'ui button tiny'

@@ -1,0 +1,2 @@
+class ManagerCriterion < ApplicationRecord
+end

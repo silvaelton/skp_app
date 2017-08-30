@@ -1,3 +1,7 @@
+body {
+  background-color: #fafafa !important;
+}
+
 .skipa-sidebar {
   background-color: #00a3da !important;
   font-family: 'Mukta', sans-serif !important;
@@ -10,4 +14,8 @@
 #container {
   padding: 20px !important;
   margin-right: 17% !important;
+}
+
+.ui.blue.button, .ui.blue.buttons .button  {
+  background-color: #00a3da !important;
 }

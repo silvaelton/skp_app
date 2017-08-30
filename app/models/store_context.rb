@@ -1,0 +1,2 @@
+class StoreContext < ApplicationRecord
+end

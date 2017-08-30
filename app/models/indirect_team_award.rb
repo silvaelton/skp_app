@@ -1,0 +1,2 @@
+class IndirectTeamAward < ApplicationRecord
+end

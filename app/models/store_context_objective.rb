@@ -1,0 +1,2 @@
+class StoreContextObjective < ApplicationRecord
+end

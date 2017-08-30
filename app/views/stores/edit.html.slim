@@ -1,0 +1,11 @@
+.ui.grid
+  .row
+    .column
+      h1 Lojas
+      = link_to "Voltar para listagem", stores_path, class: 'ui button tiny'
+  .row
+    .column
+      .ui.segment
+        .ui.header
+          | Edição de cadastro
+        = render 'form'

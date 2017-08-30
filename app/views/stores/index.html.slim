@@ -1,17 +1,27 @@
 .ui.grid
   .row
     .column
-      h1 Lojas
+      h1 Minhas Lojas
+      = link_to "+ Adicionar loja", new_store_path, class: 'ui button blue tiny'
   .row
     .column
       table.ui.table.striped.celled
         thead
           tr 
-            th Teste
-            th Teste
-            th Teste
-        tbody
+            th colspan=5
+              | Listando #{@stores.count} loja(s)
           tr 
-            td Teste
-            td Teste
-            td Teste
+            th Nome da loja
+            th CNPJ
+            th Criada em
+            th
+        tbody
+          - @stores.each do |store|
+            tr 
+              td= store.name
+              td.collapsing= store.cnpj
+              td.collapsing= store.created_at.strftime("%d/%m/%Y - %H:%M")
+              td.collapsing
+                = link_to "Detalhar", store_path(store), class: 'ui button blue tiny'
+                = link_to "Editar", edit_store_path(store), class: 'ui button green tiny'
+                = link_to "Remover", store_path(store), method: :delete, data: { confirm: t(:confirm)}, class: 'ui button red tiny'

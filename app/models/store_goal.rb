@@ -1,0 +1,2 @@
+class StoreGoal < ApplicationRecord
+end

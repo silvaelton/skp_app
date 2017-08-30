@@ -1,0 +1,2 @@
+class StoreContextHitObjective < ApplicationRecord
+end
