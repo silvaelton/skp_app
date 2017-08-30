@@ -27,3 +27,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+
+group :production do 
+  gem 'puma'
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
