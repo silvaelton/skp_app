@@ -1,0 +1,6 @@
+- if @context.errors.any?
+  | $("#modal .content").html("#{escape_javascript(render 'form')}");
+- else
+  | $("#modal").html("#{escape_javascript(render 'layouts/partials/modal_success')}");
+  | $("#modal").modal("hide");
+  | $("#context").addClass("active");

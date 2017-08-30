@@ -1,0 +1,111 @@
+.ui.grid
+  .row
+    .column
+      h1 #{@store.name} - #{@context.title}
+      = link_to "Retonar para detalhamento", store_path(@store), class: 'ui button tiny'
+      = link_to "Imprimir", "#", class: 'ui button green tiny'
+  .row
+    .column
+      .ui.styled.fluid.accordion
+        .active.title
+          i.dropdown.icon
+          | Visão geral
+        .active.content
+          h5 Prêmio Qualitativo (Gerente)
+          table.ui.table.striped.celled
+            thead
+              tr
+                th 
+          h5 Prêmio Comercial (Atendente)
+          table.ui.table.striped.celled
+            thead
+              tr
+                th   
+        .title
+          i.dropdown.icon
+          | À pagar
+        .content
+          h5 À pagar (Comercial)
+          table.ui.table.striped.celled
+            thead
+              tr
+                th   
+
+          h5 À pagar (Prêmio qualitativo)
+          table.ui.table.striped.celled
+            thead
+              tr
+                th   
+
+          h5 À pagar (Prêmio equipe indireta)
+          table.ui.table.striped.celled
+            thead
+              tr
+                th   
+        .title
+          i.dropdown.icon
+          | Operações (escopo)
+        .content
+          = link_to "+ Adicionar escopo", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Operação
+                th Total (Vendas)
+        .title
+          i.dropdown.icon
+          | Gerência
+        .content
+          h5 Avaliações
+          = link_to "+ Adicionar avaliação", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Cod.
+                th Início
+                th Fim
+                th Situação
+                th
+          h5 Avaliações de objetivos
+          = link_to "+ Adicionar objetivo", "#"
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Descrição
+                th Situação
+                th
+        .title
+          i.dropdown.icon
+          | Vendedores
+        .content
+          = link_to "+ Adicionar vendedor", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Nome do vendedor
+        .title
+          i.dropdown.icon
+          | Equipe indireta
+        .content
+          = link_to "+ Adicionar vendedor", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Percentual (%)
+                th Quantidade de funcionários
+                th Valor por funcionário
+                th Total
+        .title
+          i.dropdown.icon
+          | Vendas
+        .content
+          = link_to "+ Adicionar venda", "#"         
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Nome do vendedor
+                th Vendas (R$)
+                th Prêmio pelo excedente
+                th Prêmio pela superação da meta
+                th Fixo
+                th Total

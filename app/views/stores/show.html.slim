@@ -50,16 +50,31 @@
                 th Situação
                 th
 
-        .title
+        .title#context
           i.dropdown.icon
-          | Períodos (0)
+          | Períodos (#{@store.store_contexts.count})
         .content
           = link_to "+ Adicionar período", new_store_context_path(@store), remote: true
-          table.ui.table.striped.celled
-            thead
-              tr
-                th Cod.
-                th Início
-                th Fim
-                th Situação
-                th
+          - if @store.store_contexts.present?
+            table.ui.table.striped.celled
+              thead
+                tr
+                  th Cod.
+                  th Título
+                  th Início
+                  th Fim
+                  th Ativo?
+                  th
+              tbody
+                - @store.store_contexts.each do |context|
+                  tr 
+                    td.collapsing= context.id
+                    td= link_to context.title, store_context_path(@store, context)
+                    td.collapsing= context.started_at.strftime("%d/%m/%Y")
+                    td.collapsing= context.ended_at.strftime("%d/%m/%Y")
+                    td.collapsing= context.status
+                    td.collapsing
+                      = link_to "Editar", edit_store_context_path(@store, context), remote: true
+
+          - else
+            i Nenhum contexto criado.

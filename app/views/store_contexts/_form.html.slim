@@ -1,14 +1,16 @@
-= simple_form_for url_for do |f|
+= simple_form_for @context, url: @context.new_record? ? store_contexts_path(@store) : store_context_path(@store, @context), method: @context.new_record? ? :post : :put, remote: true do |f|
   .field
-    = f.input :name
+    = f.input :title
   .field
     = f.input :description
   .fields
     .field.four.wide
-      = f.input :started_at, input_html: { class: 'date'}
+      = f.input :started_at,as: :string, input_html: { class: 'date'}
     .field.four.wide
-      = f.input :ended_at, input_html: { class: 'date'}
+      = f.input :ended_at, as: :string,input_html: { class: 'date'}
     .field.four.wide
       = f.input :status, as: :select, include_blank: false
-
-  = f.button :submit, class: 'ui button blue tiny'
+  .field
+    = f.input :manager_ids, as: :select
+  .field
+    = f.button :submit, class: 'ui button blue tiny'
