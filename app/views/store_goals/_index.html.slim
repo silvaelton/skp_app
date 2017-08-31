@@ -1,15 +1,31 @@
 - if @context.store_goals.present?
   - @context.store_goals.each do |goal|
-    tr 
+    tr style='font-size: 11px'
       td= goal.name
-      td= goal.exceed_minimum_percent
-      td= goal.exceed_goal_percent
+      td.collapsing= number_to_currency goal.minimum_value
+      td.collapsing= number_to_currency goal.goal_value
+      td.collapsing= number_to_currency goal.store_staff_scores.sum(:score_value)
+      td.collapsing= number_to_currency goal.sum_exceed
+      td.collapsing= number_to_currency goal.scores_goal_difference
+      td.collapsing= number_to_currency goal.score_goal_premium
+      td= "#{goal.exceed_minimum_percent} %"
+      td= "#{goal.exceed_goal_percent} %"
       td= number_to_currency goal.fixed_exceed_goal_value
       td.collapsing
         = link_to edit_store_context_goal_path(@store, @context, goal), remote: true, class: 'ui button green tiny icon' do
           i.icon.pencil
         = link_to store_context_goal_path(@store, @context, goal), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
           i.icon.trash
+
+  tr
+    td 
+      b Total
+    td.collapsing
+      b= number_to_currency @context.store_goals.sum(:minimum_value)
+    td.collapsing
+      b= number_to_currency @context.store_goals.sum(:goal_value)
+    td colspan=7
+
 - else
   tr
     td colspan=6

@@ -4,18 +4,71 @@
   table.ui.table.striped.celled
     thead
       tr
+        th 
+        th 
+        th 
+        th= number_to_currency goal.sum_exceed_minimum_percent
+        th= number_to_currency goal.sum_exceed_goal_percent
+        th= number_to_currency goal.fixed_exceed_goal_value 
+        th 
+        th 
+      tr
         th Nome do vendedor
         th Vendas (R$)
+        th %
         th Prêmio pelo excedente
         th Prêmio pela superação da meta
         th Fixo
         th Total
+        th
     tbody
-      - goal.store_staff_scores.each do |score|
+      - if goal.store_staff_scores.present?
+        - total_percent = 0
+        - score_percent = 0
+        - score_goal_percent = 0
+        - score_fixed_percent = 0
+        - score_total = 0
+
+        - goal.store_staff_scores.each do |score|
+          tr 
+            td= score.staff.name
+            td= number_to_currency score.score_value
+            
+            td= score.score_percent
+            - total_percent += score.score_percent 
+
+            td= number_to_currency score.score_execeed
+            - score_percent += score.score_execeed 
+
+            td= number_to_currency score.score_goal_execeed
+            - score_goal_percent += score.score_goal_execeed 
+
+            td= number_to_currency score.score_fixed
+            - score_fixed_percent += score.score_fixed 
+
+            td= number_to_currency score.score_total
+            - score_total += score.score_total 
+
+            td.collapsing
+                = link_to store_context_goal_staff_score_path(@store, @context, goal, score), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+                  i.icon.trash
         tr 
-          td= score.staff.name
-          td= number_to_currency score.score_value
+          td 
+            b Total
           td
+            b= number_to_currency goal.store_staff_scores.sum(:score_value)
           td
+            b= total_percent.round(2)
           td
+            b= number_to_currency score_percent.round(2)
           td
+            b= number_to_currency score_goal_percent.round(2)
+          td
+            b= number_to_currency score_fixed_percent.round(2)
+          td
+            b= number_to_currency score_total.round(2)
+          td
+      - else
+        tr 
+          td colspan=7
+            i Nenhuma venda cadastrada.

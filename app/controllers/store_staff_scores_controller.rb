@@ -13,6 +13,10 @@ class StoreStaffScoresController < ApplicationController
     @score.save
   end
 
+  def destroy
+    @score.destroy
+  end
+
   private
 
   def set_store
@@ -28,6 +32,7 @@ class StoreStaffScoresController < ApplicationController
   end
 
   def set_score
+
     @score  = StoreStaffScoreForm.where(goal_id: @goal.id).find(params[:id])
   end
 
