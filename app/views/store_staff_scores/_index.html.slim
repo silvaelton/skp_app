@@ -31,7 +31,7 @@
 
         - goal.store_staff_scores.each do |score|
           tr 
-            td= score.staff.name
+            td= score.staff.name rescue "Sem informação"
             td= number_to_currency score.score_value
             
             td= score.score_percent
