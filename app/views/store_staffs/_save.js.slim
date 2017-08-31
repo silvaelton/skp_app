@@ -1,7 +1,7 @@
-- if @context.errors.any?
+- if @staff.errors.any?
   | $("#modal .content").html("#{escape_javascript(render 'form')}");
 - else
-  | $("#context-index").html("#{escape_javascript(render 'index')}");
+  | $("#staffs-index").html("#{escape_javascript(render 'index')}");
   | $("#modal").html("#{escape_javascript(render 'layouts/partials/modal_success')}");
   | $("#modal").modal("hide");
   | $("#context").addClass("active");

@@ -14,4 +14,5 @@
 //= require jquery
 //= require turbolinks
 //= require semantic-ui/semantic.min
+//= require jquery/mask.min
 //= require global

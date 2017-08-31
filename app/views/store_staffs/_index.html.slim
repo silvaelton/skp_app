@@ -1,0 +1,16 @@
+- if @store.store_staffs.present?
+  - @store.store_staffs.each do |staff|
+    tr 
+      td.collapsing= staff.id
+      td= staff.name
+      td.collapsing= staff.cpf
+      td.collapsing= staff.job
+      td.collapsing
+        = link_to edit_store_staff_path(@store, staff), remote: true, class: 'ui button green tiny icon' do
+          i.icon.pencil
+        = link_to store_staff_path(@store, staff), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+          i.icon.trash
+- else
+  tr
+    td colspan=6
+      i Nenhum vendedor cadastrado.

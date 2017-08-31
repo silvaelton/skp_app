@@ -1,0 +1,8 @@
+= simple_form_for @staff, url: @staff.new_record? ? store_managers_path(@store) : store_manager_path(@store, @staff), method: @staff.new_record? ? :post : :put, remote: true do |f|
+  .fields
+    .field.wide.twelve
+      = f.input :name
+    .field.wide.four
+      = f.input :cpf, input_html: { class: 'cpf'}
+  .field
+    = f.button :submit, class: 'ui button blue tiny'

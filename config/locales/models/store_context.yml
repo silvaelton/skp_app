@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      store_context: "Período"
+    attributes:
+      store_context:
+        title: "Título"
+        description: "Descrição"
+        started_at: "Início"
+        ended_at: "Fim"
+        status: "Ativo?"
+        

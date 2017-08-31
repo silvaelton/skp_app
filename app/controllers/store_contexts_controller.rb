@@ -14,6 +14,11 @@ class StoreContextsController < ApplicationController
     @context = StoreContextForm.where(store_id: @store.id).find(params[:id])
   end
 
+  def destroy
+    @context = StoreContextForm.where(store_id: @store.id).find(params[:id])
+    @context.destroy
+  end
+
 
   private
 

@@ -15,6 +15,9 @@ gem 'slim'
 gem 'jquery-rails'
 gem 'simple_form'
 
+gem 'validates_cpf_cnpj'
+
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

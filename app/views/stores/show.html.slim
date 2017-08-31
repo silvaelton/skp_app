@@ -25,9 +25,9 @@
                 th Ok
         .title
           i.dropdown.icon
-          | Gerência
+          | Gerência (#{@store.store_managers.count})
         .content
-          = link_to "+ Adicionar gerente", "#"         
+          = link_to "+ Adicionar gerente", new_store_manager_path(@store), remote: true     
           table.ui.table.striped.celled
             thead
               tr
@@ -36,11 +36,13 @@
                 th Fim
                 th Situação
                 th
+            tbody#managers-index
+              = render 'store_managers/index'
         .title
           i.dropdown.icon
-          | Vendedores
+          | Vendedores (#{@store.store_staffs.count})
         .content
-          = link_to "+ Adicionar vendedor", "#"
+          = link_to "+ Adicionar vendedor", new_store_staff_path(@store), remote: true
           table.ui.table.striped.celled
             thead
               tr
@@ -49,32 +51,22 @@
                 th Fim
                 th Situação
                 th
-
+            tbody#staffs-index
+              = render 'store_staffs/index'
+               
         .title#context
           i.dropdown.icon
           | Períodos (#{@store.store_contexts.count})
         .content
           = link_to "+ Adicionar período", new_store_context_path(@store), remote: true
-          - if @store.store_contexts.present?
-            table.ui.table.striped.celled
-              thead
-                tr
-                  th Cod.
-                  th Título
-                  th Início
-                  th Fim
-                  th Ativo?
-                  th
-              tbody
-                - @store.store_contexts.each do |context|
-                  tr 
-                    td.collapsing= context.id
-                    td= link_to context.title, store_context_path(@store, context)
-                    td.collapsing= context.started_at.strftime("%d/%m/%Y")
-                    td.collapsing= context.ended_at.strftime("%d/%m/%Y")
-                    td.collapsing= context.status
-                    td.collapsing
-                      = link_to "Editar", edit_store_context_path(@store, context), remote: true
-
-          - else
-            i Nenhum contexto criado.
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Cod.
+                th Título
+                th Início
+                th Fim
+                th Ativo?
+                th
+            tbody#context-index
+              = render 'store_contexts/index'

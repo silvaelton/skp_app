@@ -1,0 +1,17 @@
+- if @store.store_contexts.present?
+  - @store.store_contexts.each do |context|
+    tr 
+      td.collapsing= context.id
+      td= link_to context.title, store_context_path(@store, context)
+      td.collapsing= context.started_at.strftime("%d/%m/%Y")
+      td.collapsing= context.ended_at.strftime("%d/%m/%Y")
+      td.collapsing= context.status
+      td.collapsing
+          = link_to edit_store_context_path(@store, context), remote: true, class: 'ui button green tiny icon' do
+            i.icon.pencil
+          = link_to store_context_path(@store, context), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+            i.icon.trash
+- else
+  tr 
+    td colspan=6
+      i Nenhum período cadastrado.
