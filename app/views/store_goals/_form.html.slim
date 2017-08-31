@@ -1,0 +1,20 @@
+= simple_form_for @goal, url: @goal.new_record? ? store_context_goals_path(@store, @context) : store_context_goal_path(@store, @context, @goal), method: @goal.new_record? ? :post : :put, remote: true do |f|
+  .field
+    = f.input :name 
+  .field
+    = f.input :description
+  .fields
+    .field.wide.three
+      = f.input :minimum_value,as: :string,  input_html: {class: 'coin'}
+    .field.wide.three
+      = f.input :goal_value,as: :string,  input_html: {class: 'coin'} 
+    .field.wide.three
+      = f.input :exceed_minimum_percent,as: :string,  input_html: {class: 'coin'}
+    .field.wide.three
+      = f.input :exceed_goal_percent,as: :string,  input_html: {class: 'coin'}
+    .field.wide.three
+      = f.input :fixed_exceed_goal_value, as: :string, input_html: {class: 'coin'} 
+  .field
+    = f.button :submit, class: 'ui button blue tiny'
+
+      

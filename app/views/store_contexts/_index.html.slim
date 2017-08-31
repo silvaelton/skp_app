@@ -1,11 +1,11 @@
 - if @store.store_contexts.present?
-  - @store.store_contexts.each do |context|
+  - @store.store_contexts.each_with_index do |context, index|
     tr 
-      td.collapsing= context.id
+      td.collapsing= index + 1
       td= link_to context.title, store_context_path(@store, context)
       td.collapsing= context.started_at.strftime("%d/%m/%Y")
       td.collapsing= context.ended_at.strftime("%d/%m/%Y")
-      td.collapsing= context.status
+      td.collapsing= context.status ? "Sim" : "Não"
       td.collapsing
           = link_to edit_store_context_path(@store, context), remote: true, class: 'ui button green tiny icon' do
             i.icon.pencil

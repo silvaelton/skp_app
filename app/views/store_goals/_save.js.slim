@@ -1,6 +1,6 @@
-- if @staff.errors.any?
+- if @goal.errors.any?
   | $("#modal .content").html("#{escape_javascript(render 'form')}");
 - else
-  | $("#managers-index").html("#{escape_javascript(render 'index')}");
+  | $("#goals-index").html("#{escape_javascript(render 'index')}");
   | $("#modal").fadeOut().modal("hide");
   | $("#context").addClass("active");

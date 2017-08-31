@@ -22,7 +22,9 @@
               td.collapsing= store.cnpj
               td.collapsing= store.created_at.strftime("%d/%m/%Y - %H:%M")
               td.collapsing
-                = link_to "Detalhar", store_path(store), class: 'ui button blue tiny'
-                = link_to "Editar", edit_store_path(store), class: 'ui button green tiny'
-                = link_to "Remover", store_path(store), method: :delete, data: { confirm: t(:confirm)}, class: 'ui button red tiny'
-                
+                = link_to store_path(store), class: 'ui button blue tiny icon' do
+                  i.icon.share
+                = link_to edit_store_path(store), class: 'ui button green tiny icon' do
+                  i.icon.pencil
+                = link_to store_path(store), method: :delete, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+                  i.icon.trash

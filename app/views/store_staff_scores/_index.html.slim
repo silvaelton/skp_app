@@ -1,0 +1,21 @@
+- @context.store_goals.each do |goal| 
+  h3= goal.name  
+  = link_to "+ Adicionar venda", new_store_context_goal_staff_score_path(@store, @context, goal), remote: true      
+  table.ui.table.striped.celled
+    thead
+      tr
+        th Nome do vendedor
+        th Vendas (R$)
+        th Prêmio pelo excedente
+        th Prêmio pela superação da meta
+        th Fixo
+        th Total
+    tbody
+      - goal.store_staff_scores.each do |score|
+        tr 
+          td= score.staff.name
+          td= number_to_currency score.score_value
+          td
+          td
+          td
+          td

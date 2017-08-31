@@ -6,6 +6,18 @@
       = link_to "Imprimir", "#", class: 'ui button green tiny'
   .row
     .column
+      .ui.segment
+        h4 Operações (escopo)
+        = link_to "+ Adicionar escopo", new_store_context_goal_path(@store, @context), remote: true      
+        table.ui.table.striped.celled
+          thead
+            tr
+              th Operação
+              th 
+          tbody#goals-index
+            = render 'store_goals/index'
+  .row
+    .column
       .ui.styled.fluid.accordion
         .active.title
           i.dropdown.icon
@@ -42,16 +54,7 @@
             thead
               tr
                 th   
-        .title
-          i.dropdown.icon
-          | Operações (escopo)
-        .content
-          = link_to "+ Adicionar escopo", "#"         
-          table.ui.table.striped.celled
-            thead
-              tr
-                th Operação
-                th Total (Vendas)
+
         .title
           i.dropdown.icon
           | Gerência
@@ -76,15 +79,6 @@
                 th
         .title
           i.dropdown.icon
-          | Vendedores
-        .content
-          = link_to "+ Adicionar vendedor", "#"         
-          table.ui.table.striped.celled
-            thead
-              tr
-                th Nome do vendedor
-        .title
-          i.dropdown.icon
           | Equipe indireta
         .content
           = link_to "+ Adicionar vendedor", "#"         
@@ -98,14 +92,5 @@
         .title
           i.dropdown.icon
           | Vendas
-        .content
-          = link_to "+ Adicionar venda", "#"         
-          table.ui.table.striped.celled
-            thead
-              tr
-                th Nome do vendedor
-                th Vendas (R$)
-                th Prêmio pelo excedente
-                th Prêmio pela superação da meta
-                th Fixo
-                th Total
+        .content#scores-index
+          = render 'store_staff_scores/index'

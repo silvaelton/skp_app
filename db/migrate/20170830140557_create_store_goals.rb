@@ -2,7 +2,7 @@ class CreateStoreGoals < ActiveRecord::Migration[5.1]
   def change
     create_table :store_goals do |t|
 
-      t.integer :goal_id 
+      t.integer :context_id 
       t.string  :name 
       t.text    :description
       t.float   :minimum_value

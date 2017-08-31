@@ -1,0 +1,13 @@
+- if @context.store_goals.present?
+  - @context.store_goals.each do |goal|
+    tr 
+      td= goal.name
+      td.collapsing
+        = link_to edit_store_context_goal_path(@store, @context, goal), remote: true, class: 'ui button green tiny icon' do
+          i.icon.pencil
+        = link_to store_context_goal_path(@store, @context, goal), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+          i.icon.trash
+- else
+  tr
+    td colspan=6
+      i Nenhuma operação cadastrada.

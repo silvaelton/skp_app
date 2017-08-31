@@ -1,5 +1,6 @@
 class StoreStaffsController < ApplicationController
   before_action :set_store
+  before_action :set_staff, only: [:edit, :update, :destroy]
 
   def new
     @staff = StoreStaffForm.where(store_id: @store.id, job: 'vendedor').new
@@ -15,7 +16,23 @@ class StoreStaffsController < ApplicationController
     @staff.destroy
   end
 
+
+  def edit
+  end
+
+  def update
+    @staff.update(set_params)
+  end
+
+  def destroy
+    @staff.destroy
+  end
+
   private
+
+  def set_staff 
+    @staff = StoreStaffForm.where(store_id: @store.id, job: 'vendedor').find(params[:id])
+  end
 
   def set_store
     @store = Store.find(params[:store_id])

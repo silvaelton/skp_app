@@ -1,0 +1,9 @@
+= simple_form_for @score, url: @score.new_record? ? store_context_goal_staff_scores_path(@store, @context, @goal) : store_context_goal_staff_score_path(@store, @context, @goal, @score), method: @score.new_record? ? :post : :put, remote: true do |f|
+  .fields
+    .field.six.wide
+      = f.input :staff_id, as: :select, collection: @store.store_staffs, include_blank: false
+    .field.four.wide
+      = f.input :score_value, as: :string, input_html: { class: 'coin' }
+  .field
+    = f.button :submit, class: 'ui button blue tiny' 
+

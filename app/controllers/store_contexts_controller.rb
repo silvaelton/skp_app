@@ -1,5 +1,6 @@
 class StoreContextsController < ApplicationController
   before_action :set_store
+  before_action :set_context, only: [:edit, :show, :update, :destroy]
 
   def new
     @context = StoreContextForm.where(store_id: @store.id).new
@@ -11,16 +12,25 @@ class StoreContextsController < ApplicationController
   end
 
   def show
-    @context = StoreContextForm.where(store_id: @store.id).find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @context.update(set_params)
   end
 
   def destroy
-    @context = StoreContextForm.where(store_id: @store.id).find(params[:id])
     @context.destroy
   end
 
 
   private
+
+  def set_context
+    @context = StoreContextForm.where(store_id: @store.id).find(params[:id])
+  end
 
   def set_params
     params.require(:store_context_form)
