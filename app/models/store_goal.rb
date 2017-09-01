@@ -27,29 +27,29 @@ class StoreGoal < ApplicationRecord
 
   # EXCENDENTE REALIZADO
   def sum_exceed
-    total = (self.store_staff_scores.sum(:score_value) - self.minimum_value)  rescue 0
+    total = (self.store_staff_scores.sum(:score_value).to_f - self.minimum_value.to_f)  rescue 0
     
     total <= 0 ? 0 : total
   end
 
   # PRÊMIO PELO EXCEDENTE
   def sum_exceed_minimum_percent
-    ((self.exceed_minimum_percent * self.sum_exceed) / 100) rescue 0
+    ((self.exceed_minimum_percent.to_f * self.sum_exceed.to_f) / 100) rescue 0
   end
 
   # PRÊMIO PELA SUPERAÇÃO DA META
   def sum_exceed_goal_percent
-    ((self.exceed_goal_percent * self.score_goal_premium) / 100) rescue 0
+    ((self.exceed_goal_percent.to_f * self.score_goal_premium.to_f) / 100) rescue 0
   end
 
   # DIFERENÇA EM RELAÇÃO À META
   def scores_goal_difference
-    (self.store_staff_scores.sum(:score_value) - self.goal_value) rescue 0
+    (self.store_staff_scores.sum(:score_value).to_f - self.goal_value.to_f) rescue 0
   end
 
   # BASE DO PRÊMIO DE SUPERAÇÃO
   def score_goal_premium
-    (self.scores_goal_difference <= 0) ? 0 : self.scores_goal_difference
+    (self.scores_goal_difference.to_f <= 0) ? 0 : self.scores_goal_difference.to_f
   end
 
 
