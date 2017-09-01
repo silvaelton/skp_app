@@ -6,23 +6,23 @@ class StoreGoal < ApplicationRecord
   
   # CONFIGURANDO VALORES
   def minimum_value
-    '%.2f' % self[:minimum_value]
+    ('%.2f' % self[:minimum_value]) rescue 0
   end
 
   def goal_value
-    '%.2f' % self[:goal_value]
+    ('%.2f' % self[:goal_value]) rescue 0
   end
 
   def exceed_minimum_percent
-    '%.2f' % self[:exceed_minimum_percent]
+    ('%.2f' % self[:exceed_minimum_percent]) rescue 0
   end
 
   def exceed_goal_percent
-    '%.2f' % self[:exceed_goal_percent]
+    ('%.2f' % self[:exceed_goal_percent]) rescue 0
   end
 
   def fixed_exceed_goal_value
-    '%.2f' % self[:fixed_exceed_goal_value]
+    ('%.2f' % self[:fixed_exceed_goal_value]) rescue 0
   end
 
   # EXCENDENTE REALIZADO
