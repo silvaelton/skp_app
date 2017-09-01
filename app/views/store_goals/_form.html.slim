@@ -8,11 +8,12 @@
       = f.input :minimum_value,as: :string,  input_html: {class: 'coin'}
     .field.wide.three
       = f.input :goal_value,as: :string,  input_html: {class: 'coin'} 
+  .fields
     .field.wide.three
       = f.input :exceed_minimum_percent,as: :string,  input_html: {class: 'coin'}
     .field.wide.three
       = f.input :exceed_goal_percent,as: :string,  input_html: {class: 'coin'}
-    .field.wide.three
+    .field.wide.four
       = f.input :fixed_exceed_goal_value, as: :string, input_html: {class: 'coin'} 
   .field
     = f.button :submit, class: 'ui button blue tiny'

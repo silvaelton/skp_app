@@ -3,6 +3,15 @@ class StoreStaffScore < ApplicationRecord
   belongs_to :staff, class_name: StoreStaff, foreign_key: :staff_id
   belongs_to :goal, class_name: StoreGoal
 
+
+  validates_uniqueness_of :staff_id, scope: :goal
+  #FORMATACAO
+
+  def score_value
+    ('%.2f' % self[:score_value]) rescue 0
+  end
+  
+
   #PORCENTAGEM DE VENDA
   def score_percent
     (100 / (self.goal.store_staff_scores.sum(:score_value) / self.score_value)).round(2)  rescue 0

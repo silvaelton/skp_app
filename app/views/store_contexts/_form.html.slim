@@ -5,9 +5,9 @@
     = f.input :description
   .fields
     .field.four.wide
-      = f.input :started_at,as: :string, input_html: { class: 'date'}
+      = f.input :started_at,as: :string, input_html: { class: 'date', value: f.object.started_at.present? ? localize(f.object.started_at) : nil}
     .field.four.wide
-      = f.input :ended_at, as: :string,input_html: { class: 'date'}
+      = f.input :ended_at, as: :string,input_html: { class: 'date', value: f.object.ended_at.present? ? localize(f.object.ended_at) : nil}
     .field.four.wide
       = f.input :status, as: :select, include_blank: false
   .field

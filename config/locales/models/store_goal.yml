@@ -1,0 +1,15 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      store_goal: "Operação"
+    attributes:
+      store_goal:
+        name: "Título"
+        description: "Descrição"
+        minimum_value: "Piso (R$)"
+        goal_value: "Meta (R$)"
+        exceed_minimum_percent: "% ao exceder o piso"
+        exceed_goal_percent: "% ao exceder a meta"
+        fixed_exceed_goal_value: "Valor fixo ao exceder a meta (R$)"
+        

@@ -1,10 +1,10 @@
 = simple_form_for @store, url: @store.new_record? ? stores_path : store_path(@store), method: @store.new_record? ? :post : :put do |f|
   .fields
-    .field.wide.twelve
+    .field.wide.ten
       = f.input :name 
-    .field.wide.two
+    .field.wide.three
       = f.input :cnpj, input_html: { class: 'cnpj' }
-    .field.wide.two
+    .field.wide.three
       = f.input :telephone
   .fields
     .field.wide.five

@@ -3,7 +3,27 @@ class StoreGoal < ApplicationRecord
   belongs_to :store_context, foreign_key: :context_id
 
   has_many :store_staff_scores, foreign_key: :goal_id
+  
+  # CONFIGURANDO VALORES
+  def minimum_value
+    '%.2f' % self[:minimum_value]
+  end
 
+  def goal_value
+    '%.2f' % self[:goal_value]
+  end
+
+  def exceed_minimum_percent
+    '%.2f' % self[:exceed_minimum_percent]
+  end
+
+  def exceed_goal_percent
+    '%.2f' % self[:exceed_goal_percent]
+  end
+
+  def fixed_exceed_goal_value
+    '%.2f' % self[:fixed_exceed_goal_value]
+  end
 
   # EXCENDENTE REALIZADO
   def sum_exceed

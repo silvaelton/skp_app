@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      store_staff_score: "Venda"
+    attributes:
+      store_staff_score:
+        staff: "Vendedor"
+        score_value: "Valor (R$)"
+        
