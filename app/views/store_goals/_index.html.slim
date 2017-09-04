@@ -8,9 +8,6 @@
       td.collapsing= number_to_currency goal.sum_exceed
       td.collapsing= number_to_currency goal.scores_goal_difference
       td.collapsing= number_to_currency goal.score_goal_premium
-      td= "#{goal.exceed_minimum_percent} %"
-      td= "#{goal.exceed_goal_percent} %"
-      td= number_to_currency goal.fixed_exceed_goal_value
       td.collapsing
         = link_to edit_store_context_goal_path(@store, @context, goal), remote: true, class: 'ui button green tiny icon' do
           i.icon.pencil
@@ -24,7 +21,7 @@
       b= number_to_currency @context.store_goals.sum(:minimum_value)
     td.collapsing
       b= number_to_currency @context.store_goals.sum(:goal_value)
-    td colspan=8
+    td colspan=5
 
 - else
   tr

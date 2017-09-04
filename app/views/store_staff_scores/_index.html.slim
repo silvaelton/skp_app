@@ -1,6 +1,16 @@
 - @context.store_goals.each do |goal| 
   h3= goal.name  
-  = link_to "+ Adicionar venda", new_store_context_goal_staff_score_path(@store, @context, goal), remote: true      
+  = link_to "+ Adicionar venda", new_store_context_goal_staff_score_path(@store, @context, goal), remote: true   
+
+  table.ui.table.striped.celled   
+    thead
+      th (%) O que exceder o piso
+      th (%) O que exceder a meta
+      th Fixo pela superação da meta
+    tbody
+      td= "#{goal.exceed_minimum_percent} %"
+      td= "#{goal.exceed_goal_percent} %"
+      td= number_to_currency goal.fixed_exceed_goal_value
   table.ui.table.striped.celled
     thead
       tr

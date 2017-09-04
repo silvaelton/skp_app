@@ -1,0 +1,17 @@
+- if @context.context_objectives.present?
+  - @context.context_objectives.each_with_index do |objective, index|
+    tr 
+      td= objective.name
+      td.collapsing= objective.score
+      td.collapsing style='text-align: center !important'
+        - if objective.hit_objectives.where(objective_id: objective.id).present?
+          = link_to new_store_context_objective_hit_objective_path(@store, @context, objective), remote: true, class: 'ui button green tiny icon' do
+            i.icon.check
+        - else
+          = link_to new_store_context_objective_hit_objective_path(@store, @context, objective), remote: true, class: 'ui button tiny icon' do
+            i.icon.check
+      td.collapsing
+- else
+  tr 
+    td colspan=6
+      i Nenhum período cadastrado.

@@ -77,17 +77,13 @@
                 th Situação
                 th
           h5 Avaliações de objetivos
-          = link_to "+ Adicionar objetivo", new_store_context_objective_path(@store, @context), remote: true
+          = link_to "+ Adicionar objetivo", new_store_context_objective_path(store, @context), remote: true
           table.ui.table.striped.celled
             thead
               tr
                 th Descrição
-                th Bonificação
-                th Verificação
                 th Pontuação
-            tbody
-              = render 'store_context_objectives/index'
-
+                th
         .title
           i.dropdown.icon
           | Equipe indireta

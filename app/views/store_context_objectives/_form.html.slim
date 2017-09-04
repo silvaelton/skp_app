@@ -1,0 +1,11 @@
+= simple_form_for @objective, url: @objective.new_record? ? store_context_objectives_path(@store, @context) : store_context_objective_path(@store, @context, @objective), method: @objective.new_record? ? :post : :put, remote: true do |f|
+  .field
+    = f.input :name
+  .field
+    .fields.four.wide
+      = f.input :score
+  .field
+    .fields.wide.four
+      = f.input :status, as: :select, include_blank: false
+  .field
+    = f.button :submit, class: 'ui button blue tiny'
