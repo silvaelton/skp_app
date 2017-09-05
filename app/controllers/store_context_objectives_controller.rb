@@ -1,6 +1,7 @@
 class StoreContextObjectivesController < ApplicationController
   before_action :set_store
   before_action :set_context
+  before_action :set_objective, only: :destroy
 
   def new
     @objective = StoreContextObjectiveForm.where(context_id: @context.id).new
@@ -24,6 +25,10 @@ class StoreContextObjectivesController < ApplicationController
   
   private
 
+  def set_objective
+    @objective = StoreContextObjective.where(context_id: @context.id).find(params[:id])
+  end
+  
   def set_store
     @store = Store.find(params[:store_id])
   end

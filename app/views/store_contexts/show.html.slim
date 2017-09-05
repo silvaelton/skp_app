@@ -67,6 +67,9 @@
           | Gerência
         .content
           h5 Avaliações
+          = link_to "Gestão de itens avaliativos", "#"         
+          br
+          br
           = link_to "+ Adicionar avaliação", "#"         
           table.ui.table.striped.celled
             thead
@@ -85,7 +88,8 @@
                 th Bonificação
                 th Verificação
                 th Pontuação
-            tbody
+                th
+            tbody#object-context-index
               = render 'store_context_objectives/index'
 
         .title

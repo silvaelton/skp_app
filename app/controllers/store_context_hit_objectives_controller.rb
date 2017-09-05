@@ -4,7 +4,15 @@ class StoreContextHitObjectivesController < ApplicationController
   before_action :set_objective
 
   def new
-    byebug
+
+    @hit = @objective.hit_objectives
+
+    if @hit.present?
+      @hit.destroy_all
+    else
+      @hit = @objective.hit_objectives.new
+      @hit.save
+    end
   end
 
 

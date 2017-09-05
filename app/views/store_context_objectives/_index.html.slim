@@ -1,17 +1,30 @@
 - if @context.context_objectives.present?
+  - total_score = 0
   - @context.context_objectives.each_with_index do |objective, index|
     tr 
       td= objective.name
       td.collapsing= objective.score
       td.collapsing style='text-align: center !important'
-        - if objective.hit_objectives.where(objective_id: objective.id).present?
+        - if objective.hit_objectives.present?
           = link_to new_store_context_objective_hit_objective_path(@store, @context, objective), remote: true, class: 'ui button green tiny icon' do
             i.icon.check
         - else
           = link_to new_store_context_objective_hit_objective_path(@store, @context, objective), remote: true, class: 'ui button tiny icon' do
             i.icon.check
       td.collapsing
+        - if objective.hit_objectives.present?
+          - total_score += objective.score
+          = objective.score
+      td.collapsing
+        = link_to store_context_objective_path(@store, @context, objective), remote: true, method: :delete, data: { confirm: t(:confirm)}, class: 'ui button red tiny icon' do
+            i.icon.trash
+  tr
+    td colspan=3
+      b Total:
+    td
+      = total_score
+    td
 - else
   tr 
     td colspan=6
-      i Nenhum período cadastrado.
+      i Nenhum objetivo cadastrado.
