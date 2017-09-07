@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(version: 20170830140627) do
     t.string "name"
     t.boolean "status", default: true
     t.integer "store_id"
-    t.integer "order_position"
-    t.integer "category_id"
+    t.integer "context_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170830140627) do
   create_table "manager_evaluation_categories", force: :cascade do |t|
     t.string "name"
     t.boolean "status", default: true
-    t.integer "store_id"
+    t.integer "context_id"
     t.float "minimum_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170830140627) do
     t.float "score"
     t.text "observation"
     t.integer "context_id"
+    t.date "date"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

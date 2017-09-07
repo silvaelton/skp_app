@@ -6,6 +6,7 @@ class CreateManagerEvaluations < ActiveRecord::Migration[5.1]
       t.float   :score 
       t.text    :observation
       t.integer :context_id 
+      t.date    :date
       t.integer :category_id
       
       t.timestamps

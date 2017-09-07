@@ -1,0 +1,4 @@
+require_dependency 'manager_evaluation_category'
+
+class ManagerEvaluationCategoryForm < ManagerEvaluationCategory
+end

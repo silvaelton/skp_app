@@ -5,8 +5,8 @@ class CreateManagerCriterions < ActiveRecord::Migration[5.1]
       t.string  :name
       t.boolean :status, default: true
       t.integer :store_id
-      t.integer :order_position
-      t.integer :category_id 
+      t.integer :context_id
+      t.integer :category_id
       
       t.timestamps
     end

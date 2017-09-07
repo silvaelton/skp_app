@@ -1,0 +1,14 @@
+- if @criterions.present?
+  - @criterions.each_with_index do |criterion, index|
+    tr
+      td.collapsing= index + 1
+      td= criterion.name
+      td.collapsing
+        = link_to edit_store_context_manager_criterion_path(@store, @context, criterion), remote: true, class: 'ui button green tiny icon' do
+          i.icon.pencil
+        = link_to store_context_manager_criterion_path(@store, @context, criterion), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+          i.icon.trash
+- else
+  tr 
+    td 
+      i Nenhum critério cadastrado

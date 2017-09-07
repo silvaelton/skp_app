@@ -67,18 +67,9 @@
           | Gerência
         .content
           h5 Avaliações
-          = link_to "Gestão de itens avaliativos", "#"         
+          = link_to "Gestão de categorias de avaliação", store_context_evaluation_categories_path(@store, @context), class: 'ui button blue tiny'       
           br
           br
-          = link_to "+ Adicionar avaliação", "#"         
-          table.ui.table.striped.celled
-            thead
-              tr
-                th Cod.
-                th Início
-                th Fim
-                th Situação
-                th
           h5 Avaliações de objetivos
           = link_to "+ Adicionar objetivo", new_store_context_objective_path(@store, @context), remote: true
           table.ui.table.striped.celled

@@ -4,6 +4,7 @@ class CreateManagerEvaluationCriterions < ActiveRecord::Migration[5.1]
 
       t.integer :evaluation_id 
       t.integer :criterion_id 
+      t.integer :category_id
       t.float   :score 
       
       t.timestamps

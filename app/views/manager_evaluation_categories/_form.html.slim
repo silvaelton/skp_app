@@ -1,0 +1,8 @@
+= simple_form_for @category, url: @category.new_record? ? store_context_evaluation_categories_path(@store, @context) : store_context_evaluation_category_path(@store, @context, @category), method: @category.new_record? ? :post : :put, remote: true do |f|
+  .field
+    = f.input :name
+  .field
+    .fields.four.wide
+      = f.input :minimum_score, as: :string, input_html: { class: 'coin' }
+  .field
+    = f.button :submit, class: 'ui button blue tiny'

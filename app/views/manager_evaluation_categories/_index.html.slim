@@ -1,0 +1,14 @@
+- if @categories.present?
+  - @categories.each_with_index do |criterion, index|
+    tr
+      td.collapsing= index + 1
+      td= criterion.name
+      td.collapsing
+        = link_to edit_store_context_evaluation_category_path(@store, @context, @category), remote: true, class: 'ui button green tiny icon' do
+          i.icon.pencil
+        = link_to store_context_evaluation_category_path(@store, @context, @category), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+          i.icon.trash
+- else
+  tr 
+    td 
+      i Nenhuma categoria cadastrada

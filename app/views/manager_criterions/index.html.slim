@@ -1,0 +1,18 @@
+.ui.grid
+  .row
+    .column
+      h1 Critérios de avaliação do gerente
+      h3 #{@store.name} - #{@context.title} 
+      = link_to "Voltar para detalhamento do contexto", store_context_path(@store, @context), class: 'ui button blue tiny'
+  .row
+    .column
+      .ui.segment
+        = link_to "+ Adicionar novo critério", new_store_context_manager_criterion_path(@store, @context), remote: true
+        table.ui.table.striped.celled
+          thead
+            tr
+              th Nº
+              th Descrição
+              th
+          tbody#evaluation-index
+            = render 'index'

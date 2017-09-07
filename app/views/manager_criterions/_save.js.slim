@@ -1,0 +1,5 @@
+- if @criterion.errors.any?
+  | $("#modal .content").html("#{escape_javascript(render 'form')}");
+- else
+  | $("#evaluation-index").html("#{escape_javascript(render 'index')}");
+  | $("#modal").modal("hide");
