@@ -4,15 +4,16 @@
       h1 Categorias de avaliação do gerente
       h3 #{@store.name} - #{@context.title} 
       = link_to "Voltar para detalhamento do contexto", store_context_path(@store, @context), class: 'ui button blue tiny'
+      = link_to "+ Adicionar nova categoria", new_store_context_evaluation_category_path(@store, @context), remote: true, class: 'ui button tiny green'
   .row
     .column
       .ui.segment
-        = link_to "+ Adicionar nova categoria", new_store_context_evaluation_category_path(@store, @context), remote: true
         table.ui.table.striped.celled
           thead
             tr
               th Nº
               th Descrição
+              th.collapsing Pontuação mínima
               th
           tbody#category-index
             = render 'index'

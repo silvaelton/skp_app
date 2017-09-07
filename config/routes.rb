@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     resources :store_contexts, as: :contexts do   
       
       resources :manager_evaluation_categories, as: :evaluation_categories do 
-        resources :manager_evaluations, as: :evaluations do 
-          resources :manager_evaluation_criterions, as: :criterions
-        end
+        resources :manager_evaluation_criterions, as: :evaluation_criterions
+        resources :manager_criterions, as: :criterions
+        resources :manager_evaluations, as: :evaluations
       end
 
       resources :store_context_objectives, as: :objectives do 

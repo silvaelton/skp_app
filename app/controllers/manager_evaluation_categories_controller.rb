@@ -38,6 +38,7 @@ class ManagerEvaluationCategoriesController < ApplicationController
 
 
   def set_category
+    @category = ManagerEvaluationCategoryForm.where(context_id: @context.id).find(params[:id])
   end
 
   def set_store

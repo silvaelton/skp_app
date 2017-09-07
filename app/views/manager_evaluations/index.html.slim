@@ -1,0 +1,32 @@
+.ui.grid
+  .row
+    .column
+      h1 Avaliação de gerente
+      h3 #{@store.name} - #{@context.title} - #{@category.name}
+      = link_to "Retornar para detalhamento do contexto", store_context_path(@store, @context), class: 'ui button tiny'
+      = link_to "Gestão de critérios de avaliação", store_context_evaluation_category_criterions_path(@store, @context, @category), class: 'ui button blue tiny'
+      = link_to "+ Adicionar avaliação", new_store_context_evaluation_category_evaluation_path(@store, @context, @category), class: 'ui button green tiny'
+  .row
+    .column
+      .ui.segment
+        table.ui.table.striped.celled
+          thead
+            tr
+              th Nº
+              th Pontuação
+              th.collapsing Data
+              th
+          tbody#category-index
+            - if @category.evaluates.present?
+              - @category.evaluates.each_with_index do |criterion, index|
+                tr
+                  td.collapsing= index + 1 
+                  td= criterion.total_score
+                  td.collapsing= criterion.created_at.strftime("%d/%m/%Y")
+                  td.collapsing
+                    = link_to store_context_evaluation_category_evaluation_path(@store, @context, @category, criterion), method: :delete, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+                      i.icon.trash
+            - else
+              tr
+                td 
+                  i Nenhuma avaliação para esta categoria.

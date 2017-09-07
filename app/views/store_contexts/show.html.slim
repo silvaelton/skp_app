@@ -69,6 +69,36 @@
           h5 Avaliações
           = link_to "Gestão de categorias de avaliação", store_context_evaluation_categories_path(@store, @context), class: 'ui button blue tiny'       
           br
+
+          table.ui.table.striped.celled.bordered
+            thead
+              tr
+                th Avaliação
+                th.collapsing Pontuação (Geral)
+                th.collapsing Pontuação Mínima
+                th
+            tbody
+              - if @context.evaluation_categories.present?
+                - @context.evaluation_categories.each do |category|
+                  tr 
+                    td= category.name
+                    td
+                    td= category.minimum_score
+                    td.collapsing
+                      = link_to "Adicionar avaliação", store_context_evaluation_category_evaluations_path(@store, @context, category), class: 'ui button green tiny'
+                        
+                tr
+                  td
+                    b Totais
+                  td
+                    b 0
+                  td
+                    b 0
+                  td
+              - else
+                tr 
+                  td
+                    i Nenhum categoria de avaliação cadastrada.
           br
           h5 Avaliações de objetivos
           = link_to "+ Adicionar objetivo", new_store_context_objective_path(@store, @context), remote: true

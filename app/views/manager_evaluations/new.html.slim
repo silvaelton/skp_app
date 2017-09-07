@@ -1,0 +1,10 @@
+.ui.grid
+  .row
+    .column
+      h1 Nova avaliação
+      h3 #{@store.name} - #{@context.title} - #{@category.name}
+      = link_to "Retornar para avaliações", store_context_evaluation_category_evaluations_path(@store, @context, @category), class: 'ui button tiny'
+  .row
+    .column
+      .ui.segment
+        = render 'form'

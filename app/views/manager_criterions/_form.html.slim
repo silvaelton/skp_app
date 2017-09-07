@@ -1,4 +1,4 @@
-= simple_form_for @criterion, url: @criterion.new_record? ? store_context_manager_criterions_path(@store, @context) : store_context_manager_criterion_path(@store, @context, @criterion), method: @criterion.new_record? ? :post : :put, remote: true do |f|
+= simple_form_for @criterion, url: @criterion.new_record? ? store_context_evaluation_category_criterions_path(@store, @context, @category) : store_context_evaluation_category_criterion_path(@store, @context, @category, @criterion), method: @criterion.new_record? ? :post : :put, remote: true do |f|
   .field
     = f.input :name
   .field

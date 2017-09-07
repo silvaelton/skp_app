@@ -1,0 +1,15 @@
+= simple_form_for @evaluation, url: @evaluation.new_record? ?store_context_evaluation_category_evaluations_path(@store, @context, @category) : store_context_evaluation_category_evaluation_path(@store, @context, @category, @evaluation) do |f|
+  table.ui.table.striped.celled.bordered
+    thead
+      tr
+        th Critério
+        th.collapsing Avaliação
+    tbody
+      - @category.criterions.each do |category|
+        tr
+          td= category.name
+          td= f.input :score, as: :string, label: false, input_html: { name: "manager_evaluation_form[multi_score][#{category.id}][score]"}
+    tfoot
+      tr
+        th colspan=2
+          = f.button :submit 

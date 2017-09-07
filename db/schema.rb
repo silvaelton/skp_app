@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170830140627) do
     t.boolean "status", default: true
     t.integer "store_id"
     t.integer "context_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

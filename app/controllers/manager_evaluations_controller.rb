@@ -1,6 +1,7 @@
 class ManagerEvaluationsController < ApplicationController
   before_action :set_store
   before_action :set_context
+  before_action :set_category
   before_action :set_evaluations
   before_action :set_evaluation, only: [:update, :edit, :destroy]
 
@@ -8,12 +9,15 @@ class ManagerEvaluationsController < ApplicationController
   end
 
   def new
-    @evaluation = ManagerEvaluationForm.where(context_id: @context.id).new
+    @evaluation = ManagerEvaluationForm.where(category_id: @category.id).new
   end
 
   def create
-    @evaluation = ManagerEvaluationForm.where(context_id: @context.id).new(set_params)
-    @evaluation.save
+    @evaluation = ManagerEvaluationForm.where(category_id: @category.id).new(set_params)
+    
+    if @evaluation.save
+      redirect_to action: :index
+    end
   end
   
   def edit
@@ -31,7 +35,7 @@ class ManagerEvaluationsController < ApplicationController
 
   def set_params
     params.require(:manager_evaluation_form)
-      .permit(:name)
+      .permit(multi_score: [:score])
   end
 
   def set_evaluation
@@ -46,8 +50,12 @@ class ManagerEvaluationsController < ApplicationController
     @context = StoreContext.where(store_id: @store.id).find(params[:context_id])
   end
 
+  def set_category
+    @category = ManagerEvaluationCategory.where(context_id: @context.id).find(params[:evaluation_category_id])
+  end
+
   def set_evaluations
-    @evaluations = ManagerEvaluationForm.where(context_id: @context.id)
+    @evaluations = ManagerEvaluationForm.where(category: @category.id)
   end
 
 end

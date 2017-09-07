@@ -1,0 +1,4 @@
+require_dependency 'manager_criterion'
+
+class ManagerEvaluationCriterionForm < ManagerCriterion
+end
