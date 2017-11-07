@@ -11,7 +11,16 @@
         table.ui.table.striped.celled
           thead
             tr
-              th Em construção
+              th colspan=6 Loja
+          tbody
+            tr
+              td= @store.name.mb_chars.upcase
+            tr
+              td= @store.cnpj
+              td= @store.telephone
+              td= "#{@store.city} - #{@store.uf}"
+              td= "#{@store.address} - #{@store.address_complement} - #{@store.address_number}"
+              td= @store.cep
   .row
     .column
       .ui.styled.fluid.accordion
@@ -19,7 +28,7 @@
           i.dropdown.icon
           | Gerência (#{@store.store_managers.count})
         .content
-          = link_to "+ Adicionar gerente", new_store_manager_path(@store), remote: true     
+          = link_to "+ Adicionar gerente", new_store_manager_path(@store), remote: true
           table.ui.table.striped.celled
             thead
               tr
@@ -45,7 +54,7 @@
                 th
             tbody#staffs-index
               = render 'store_staffs/index'
-               
+
         .title#context
           i.dropdown.icon
           | Períodos (#{@store.store_contexts.count})

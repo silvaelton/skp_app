@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170830140627) do
   create_table "manager_evaluation_criterions", force: :cascade do |t|
     t.integer "evaluation_id"
     t.integer "criterion_id"
+    t.integer "category_id"
     t.float "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
