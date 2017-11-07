@@ -32,11 +32,10 @@
           table.ui.table.striped.celled
             thead
               tr
-                th Cod.
-                th Início
-                th Fim
-                th Situação
-                th
+                th Nome
+                th CPF
+                th Cargo
+                th Ações
             tbody#managers-index
               = render 'store_managers/index'
         .title
@@ -47,11 +46,10 @@
           table.ui.table.striped.celled
             thead
               tr
-                th Cod.
-                th Início
-                th Fim
-                th Situação
-                th
+                th Nome
+                th CPF
+                th Cargo
+                th Ações
             tbody#staffs-index
               = render 'store_staffs/index'
 
@@ -63,11 +61,10 @@
           table.ui.table.striped.celled
             thead
               tr
-                th Cod.
-                th Título
+                th Título do período ou evento
                 th Início
                 th Fim
                 th Ativo?
-                th
+                th Ações
             tbody#context-index
               = render 'store_contexts/index'

@@ -1,7 +1,6 @@
 - if @store.store_managers.present?
   - @store.store_managers.each do |staff|
-    tr 
-      td.collapsing= staff.id
+    tr
       td= staff.name
       td.collapsing= staff.cpf
       td.collapsing= staff.job
