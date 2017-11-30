@@ -1,0 +1,6 @@
+- if @indirect.errors.any?
+  | $("#modal .content").html("#{escape_javascript(render 'form')}");
+- else
+  | $(".indirect-index").html("#{escape_javascript(render 'index')}");
+  | $("#modal").modal("hide");
+  | $("#indirect").addClass("active");

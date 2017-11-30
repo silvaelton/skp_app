@@ -4,13 +4,10 @@ class StoreStaffScore < ApplicationRecord
   belongs_to :goal, class_name: StoreGoal
 
 
-  validates_uniqueness_of :staff_id, scope: :goal
-  #FORMATACAO
-
   def score_value
     ('%.2f' % self[:score_value]) rescue 0
   end
-  
+
 
   #PORCENTAGEM DE VENDA
   def score_percent
@@ -27,7 +24,7 @@ class StoreStaffScore < ApplicationRecord
 
   def score_fixed
     if self.goal.score_goal_premium.to_f  > 0
-      self.goal.fixed_exceed_goal_value.to_f  
+      self.goal.fixed_exceed_goal_value.to_f
     else
       0
     end

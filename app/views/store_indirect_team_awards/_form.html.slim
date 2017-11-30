@@ -1,0 +1,8 @@
+= simple_form_for @indirect, remote: true, url: store_context_indirect_awards_path(@store, @context) do |f|
+  .fields
+    .four.wide.field
+      = f.input :quantity, as: :string, label: "Quantidade de funcionários"
+    .four.wide.field
+      = f.input :percent, as: :string, label: "Percentual"
+  .field
+    = f.submit 'Salvar', class: 'ui button blue tiny'

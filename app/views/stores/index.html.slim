@@ -2,22 +2,22 @@
   .row
     .column
       h1 Minhas Lojas
-      = link_to "+ Adicionar loja", new_store_path, class: 'ui button blue tiny'
+      = link_to "+ Adicionar loja", new_store_path, class: 'ui button blue tiny', data: { disable_with: t(:disable_with)}
   .row
     .column
       table.ui.table.striped.celled
         thead
-          tr 
+          tr
             th colspan=5
               | Listando #{@stores.count} loja(s)
-          tr 
+          tr
             th Nome da loja
             th CNPJ
             th Criada em
             th
         tbody
           - @stores.each do |store|
-            tr 
+            tr
               td= store.name
               td.collapsing= store.cnpj
               td.collapsing= store.created_at.strftime("%d/%m/%Y - %H:%M")

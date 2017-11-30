@@ -8,7 +8,7 @@
     .column
       .ui.segment
         h4 Operações (escopo)
-        = link_to "+ Adicionar escopo", new_store_context_goal_path(@store, @context), remote: true      
+        = link_to "+ Adicionar escopo", new_store_context_goal_path(@store, @context), remote: true
         table.ui.table.striped.celled
           thead
             tr
@@ -20,7 +20,7 @@
               th Diferença (Vendas/Meta)
               th Prêmio superação
 
-              th 
+              th
           tbody#goals-index
             = render 'store_goals/index'
   .row
@@ -34,12 +34,12 @@
           table.ui.table.striped.celled
             thead
               tr
-                th 
+                th
           h5 Prêmio Comercial (Atendente)
           table.ui.table.striped.celled
             thead
               tr
-                th   
+                th
         .title
           i.dropdown.icon
           | À pagar
@@ -48,26 +48,26 @@
           table.ui.table.striped.celled
             thead
               tr
-                th   
+                th
 
           h5 À pagar (Prêmio qualitativo)
           table.ui.table.striped.celled
             thead
               tr
-                th   
+                th
 
           h5 À pagar (Prêmio equipe indireta)
           table.ui.table.striped.celled
             thead
               tr
-                th   
+                th
 
         .title
           i.dropdown.icon
           | Gerência
         .content
           h5 Avaliações
-          = link_to "Gestão de categorias de avaliação", store_context_evaluation_categories_path(@store, @context), class: 'ui button blue tiny'       
+          = link_to "Gestão de categorias de avaliação", store_context_evaluation_categories_path(@store, @context), class: 'ui button blue tiny'
           br
 
           table.ui.table.striped.celled.bordered
@@ -80,13 +80,13 @@
             tbody
               - if @context.evaluation_categories.present?
                 - @context.evaluation_categories.each do |category|
-                  tr 
+                  tr
                     td= category.name
                     td
                     td= category.minimum_score
                     td.collapsing
                       = link_to "Adicionar avaliação", store_context_evaluation_category_evaluations_path(@store, @context, category), class: 'ui button green tiny'
-                        
+
                 tr
                   td
                     b Totais
@@ -96,7 +96,7 @@
                     b 0
                   td
               - else
-                tr 
+                tr
                   td
                     i Nenhum categoria de avaliação cadastrada.
           br
@@ -116,8 +116,8 @@
         .title
           i.dropdown.icon
           | Equipe indireta
-        .content
-          = link_to "+ Adicionar vendedor", "#"         
+        .content#indirect
+          = link_to "+ Adicionar", new_store_context_indirect_award_path(@store, @context), remote: true
           table.ui.table.striped.celled
             thead
               tr
@@ -126,6 +126,8 @@
                 th Valor por funcionário
                 th Total
                 th
+            tbody.indirect-index
+              = render 'store_indirect_team_awards/index'
         .title
           i.dropdown.icon
           | Vendas

@@ -1,0 +1,8 @@
+- @context.indirect_teams.each do |team|
+  tr
+    td #{team.percent} %
+    td= team.quantity
+    td
+    td
+    td= link_to store_context_indirect_award_path(@store, @context, team), method: :delete, remote: true, class: 'ui button red tiny icon', data: { confirm: t(:confirm)} do
+      i.icon.trash
