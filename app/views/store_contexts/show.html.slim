@@ -8,21 +8,25 @@
     .column
       .ui.segment
         h4 Operações (escopo)
-        = link_to "+ Adicionar escopo", new_store_context_goal_path(@store, @context), remote: true
-        table.ui.table.striped.celled
-          thead
-            tr
-              th Operação
-              th Piso
-              th Meta
-              th Vendas
-              th Excedente
-              th Diferença (Vendas/Meta)
-              th Prêmio superação
+        .row
+          = link_to "+ Adicionar escopo", new_store_context_goal_path(@store, @context), remote: true
+          table.ui.table.striped.celled
+            thead
+              tr
+                th Operação
+                th Piso
+                th Meta
+                th Vendas
+                th Excedente
+                th Diferença (Vendas/Meta)
+                th Prêmio superação
 
-              th
-          tbody#goals-index
-            = render 'store_goals/index'
+                th
+            tbody#goals-index
+              = render 'store_goals/index'
+
+        .row
+
   .row
     .column
       .ui.styled.fluid.accordion
@@ -55,6 +59,8 @@
             thead
               tr
                 th
+            tbody
+              = render 'store_staff_scores/resume'
 
           h5 À pagar (Prêmio equipe indireta)
           table.ui.table.striped.celled

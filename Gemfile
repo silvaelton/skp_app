@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 
 gem 'validates_cpf_cnpj'
-
+gem 'chartkick'
 
 group :development, :test do
   gem 'sqlite3'
@@ -31,9 +31,8 @@ group :development do
 end
 
 
-group :production do 
+group :production do
   gem 'puma'
   gem 'rails_12factor'
   gem 'pg'
 end
-

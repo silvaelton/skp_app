@@ -16,3 +16,4 @@
 //= require semantic-ui/semantic.min
 //= require jquery/mask.min
 //= require global
+//= require chartkick

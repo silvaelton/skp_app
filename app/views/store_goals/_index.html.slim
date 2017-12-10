@@ -15,7 +15,7 @@
           i.icon.trash
 
   tr
-    td 
+    td
       b Total
     td.collapsing
       b= number_to_currency @context.store_goals.sum(:minimum_value)
@@ -23,6 +23,11 @@
       b= number_to_currency @context.store_goals.sum(:goal_value)
     td colspan=5
 
+    - @context.store_goals.each_with_index do |goal, index|
+      - if (index + 1) == 1 || (((index) % 2) == 0)
+        tr
+      td colspan=4
+        = pie_chart StoreStaffScore.joins(:staff).where(goal_id: goal.id).group('store_staffs.name').sum(:score_value), title: goal.name
 - else
   tr
     td colspan=6
